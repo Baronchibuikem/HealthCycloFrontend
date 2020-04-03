@@ -25,3 +25,31 @@
 	background-size: cover;
 	background-position: center center;
 }
+a {
+	text-decoration: none !important;
+}
+
+.requestDataImg {
+	background-image: url("../../assets/images/requestDataImg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 350px;
+}
+.submitDataImg {
+	background-image: url("../../assets/images/submitDataImg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 350px;
+}
+.insightDataImg {
+	background-image: url("../../assets/images/insightsDataImg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 350px;
+}

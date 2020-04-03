@@ -1,0 +1,40 @@
+.AboutImg1 {
+	background-image: url("../../assets/images/AboutImg1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 300px;
+}
+.AboutImg3 {
+	background-image: url("../../assets/images/AboutImg3.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 320px;
+}
+.AboutImg2 {
+	background-image: url("../../assets/images/AboutImg2.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 250px;
+}
+.AboutImg9 {
+	background-image: url("../../assets/images/AboutImg9.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 370px;
+}
+.AboutImg10 {
+	background-image: url("../../assets/images/AboutImg10.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 370px;
+}

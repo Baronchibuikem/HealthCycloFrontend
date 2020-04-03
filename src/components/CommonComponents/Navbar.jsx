@@ -100,7 +100,7 @@ class Navbar extends Component {
 						dark
 						expand="sm"
 						fixed="top"
-						className="z-depth-5 shadow bg-white">
+						className="z-depth-5 bg-white">
 						<MDBContainer>
 							<MDBNavbarToggler onClick={this.onClick} />
 							<MDBCollapse isOpen={this.state.collapse} navbar>

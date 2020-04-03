@@ -1,12 +1,14 @@
 import React from "react";
 import Button from "../ReusableComponents/Button";
 import Card from "../ReusableComponents/Card";
+import { Link } from "react-router-dom";
 import "../StyleComponents/Homepage.css";
 import coinIcon from "../../assets/images/coin.svg";
 import consultationIcon from "../../assets/images/consultation-2.svg";
 import keyIcon from "../../assets/images/key.svg";
 import jumbotronImage1 from "../../assets/images/image1.png";
 import jumbotronImage2 from "../../assets/images/image2.png";
+import subscribeImage from "../../assets/images/subscribeImg.png";
 
 const Homepage = () => {
 	return (
@@ -68,8 +70,8 @@ const Homepage = () => {
 				</div>
 			</div>
 			<div className="container-fluid bg-white">
-				<div className="mt-5">
-					<div className="container pt-5">
+				<div className="my-5">
+					<div className="container py-5">
 						<h2 className="text-center">
 							Download Health Data. Get Resources. Send/Request Data
 						</h2>
@@ -167,21 +169,20 @@ const Homepage = () => {
 								<div className="row mt-5">
 									<div className="col-md-4 col-sm-12">
 										<small>
-											<router-link
+											<Link
 												to="/"
 												className="text-light"
-												// style="text-decoration: underline !important"
-											>
+												style={{ textDecoration: "underline !important" }}>
 												VIEW CATALOG
-											</router-link>
+											</Link>
 										</small>
 									</div>
 									<div className="col-md-7 col-sm-12">
-										<router-link to="/login">
+										<Link to="/login">
 											<Button color="#413A76" textcolor="white" width="100%">
 												BROWSE DATA
 											</Button>
-										</router-link>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -200,6 +201,129 @@ const Homepage = () => {
 									width="100%"
 									alt="pix"
 								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div className="container mt-5 ">
+				<h3>Put Data to Good Use with Us</h3>
+				<p>
+					<em>
+						You can request/send data and get insights on any program area of
+						choice
+					</em>
+				</p>
+				<div className="row mt-5">
+					<div className="col-md-6 col-sm-12 bg-light">
+						<div className="pt-5 mt-5 col-md-8 mx-auto ">
+							<h4 className="my-6">Request Data</h4>
+							<p>
+								If there is a particular dataset you would love to view, send a
+								request and we’ll make it happen.
+							</p>
+							<v-btn large color="#413A76" className="text-light my-6">
+								<Link to="/">
+									<Button color="#413A76" textcolor="white" width="50%">
+										REQUEST DATA
+									</Button>
+								</Link>
+							</v-btn>
+						</div>
+					</div>
+					<div className="col-md-6 col-sm-12 requestDataImg"></div>
+				</div>
+
+				<div className="row my-5">
+					<div className="col-md-6 col-sm-12 submitDataImg"></div>
+					<div className="col-md-6 col-sm-12 bg-light">
+						<div className="pt-5 mt-5 col-md-8 mx-auto">
+							<h4 className="my-6">Send Data</h4>
+							<p>
+								If you have a dataset you would like to share with a larger
+								audience, you can submit data here
+							</p>
+							<Link to="/">
+								<Button color="#413A76" textcolor="white" width="50%">
+									SEND DATA
+								</Button>
+							</Link>
+						</div>
+					</div>
+				</div>
+
+				<div className="row mb-3">
+					<div className="col-md-6 col-sm-12 bg-light">
+						<div className="pt-5 mt-5 col-md-8 mx-auto">
+							<h4 className="my-6">Insights</h4>
+							<p>Fully explore the length and breadth of available data</p>
+							<Link to="/">
+								<Button color="#413A76" textcolor="white" width="50%">
+									VIEW INSIGHTS
+								</Button>
+							</Link>
+						</div>
+					</div>
+					<div className="col-md-6 col-sm-12 insightDataImg "></div>
+				</div>
+			</div>
+
+			<div
+				className=" my-5 text-light"
+				style={{ backgroundColor: "#413A76", height: "150px" }}>
+				<div className="container">
+					<div className="row py-5">
+						<div className="col-md-6 col-sm-12">
+							<span className="h1">
+								Did You Know<span className="display-3">?</span>
+							</span>
+						</div>
+						<div className="col-md-6 col-sm-12">
+							<span>
+								Widespread application of Big Data in healthcare could account
+								for $300 billion to $450 billion in reduced health-care spending
+								- McKinsey & Company
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<section id="subscribe_to_newletter my-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-5 col-sm-12">
+							<img
+								src={subscribeImage}
+								alt="img"
+								class="img-responsive"
+								height="100%"
+								width="100%"
+							/>
+						</div>
+						<div class="col-md-7">
+							<div class="ml-4">
+								<h3>Want to know more?</h3>
+								<h3>Subscribe to our newsletter</h3>
+							</div>
+							<div class="row mx-auto">
+								<div class="col-md-8">
+									<input
+										class="form-control"
+										placeholder="Enter your email address"
+										type="text"
+										style={{
+											backgroundColor: "#1918186C 0% 0% no-repeat padding-box",
+											opacity: "0.6;"
+										}}
+									/>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<Button color="#413A76" textcolor="white" width="100%">
+										BROWSE DATA
+									</Button>
+								</div>
 							</div>
 						</div>
 					</div>
