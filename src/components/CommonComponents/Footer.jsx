@@ -6,27 +6,29 @@ import footerLogo from "../../assets/images/logo.png";
 export default function Footer() {
 	return (
 		<div className="container-fluid" style={{ backgroundColor: "#413A76" }}>
-			<div class="container mt-5  pt-5 text-light">
-				<div class="row">
-					<div class="col-md-8 col-sm-12">
-						<div class="row">
-							<div class="col-md-3 col-sm-12 text-center">
+			<div className="container mt-5 pt-5 text-light">
+				<div className="row">
+					<div className="col-md-8 col-sm-12">
+						<div className="row">
+							<div className="col-md-3 col-sm-12 text-center">
 								<img
 									src={footerLogo}
-									class="img-responsive"
-									width="30%"
+									className="img-responsive"
+									width="40%"
 									alt="logo"
 								/>
-								<small>
-									Product of
-									<span style={{ textDecoration: "underline" }}>
-										eHealth4everyone
-									</span>
-								</small>
+								<h6 className="text-light">
+									<small>
+										Product of{" "}
+										<span style={{ textDecoration: "underline" }}>
+											eHealth4everyone
+										</span>
+									</small>
+								</h6>
 							</div>
-							<div class="col-md-2 col-sm-12">
-								<ul class="list-unstyled">
-									<h6>ABOUT</h6>
+							<div className="col-md-2 col-sm-12">
+								<ul className="list-unstyled">
+									<h6 className="text-light">ABOUT</h6>
 									<li>
 										<small>Our Data</small>
 									</li>
@@ -46,7 +48,7 @@ export default function Footer() {
 							</div>
 							<div class="col-md-2 col-sm-12">
 								<ul class="list-unstyled">
-									<h6>SOLUTIONS</h6>
+									<h6 className="text-light">SOLUTIONS</h6>
 									<li>
 										<small>Data Broking</small>
 									</li>
@@ -73,9 +75,9 @@ export default function Footer() {
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-2 col-sm-12">
-								<ul class="list-unstyled">
-									<h6>INSIGHTS</h6>
+							<div className="col-md-2 col-sm-12">
+								<ul className="list-unstyled">
+									<h6 className="text-light">INSIGHTS</h6>
 									<li>
 										<small>Research Articles</small>
 									</li>
@@ -93,9 +95,9 @@ export default function Footer() {
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-3 col-sm-12">
-								<ul class="list-unstyled">
-									<h6>CONTACT US</h6>
+							<div className="col-md-3 col-sm-12">
+								<ul className="list-unstyled">
+									<h6 className="text-light">CONTACT US</h6>
 									<li>
 										<small>+2349021720570</small>
 									</li>
@@ -106,17 +108,17 @@ export default function Footer() {
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-12 ">
-						<h6 class="mt-4">Subscribe to HealthThink via Email</h6>
-						<div class="row">
-							<div class="col-md-8 text-light">
+					<div className="col-md-4 col-sm-12 ">
+						<h6 className="text-light">Subscribe to HealthThink via Email</h6>
+						<div className="row">
+							<div className="col-md-8 text-light">
 								<input
-									class="form-control"
+									className="form-control"
 									placeholder="Enter your email address"
 									type="text"
 								/>
 							</div>
-							<div class="col-md-4">
+							<div className="col-md-4">
 								<Button color="white" textcolor="black" width="100%">
 									{" "}
 									<small>SUBSCRIBE</small>

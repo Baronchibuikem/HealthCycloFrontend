@@ -45,7 +45,7 @@ class Navbar extends Component {
 				</MDBNavItem>
 
 				<MDBNavItem>
-					<NavLink to="/">FAQ'S</NavLink>
+					<NavLink to="/faq">FAQ'S</NavLink>
 				</MDBNavItem>
 				<MDBNavItem>
 					<NavLink to="/">CONTACT</NavLink>
@@ -76,7 +76,7 @@ class Navbar extends Component {
 				</MDBNavItem>
 
 				<MDBNavItem className="mt-2">
-					<NavLink to="/">FAQ'S</NavLink>
+					<NavLink to="/faq">FAQ'S</NavLink>
 				</MDBNavItem>
 				<MDBNavItem className="mt-2">
 					<NavLink to="/">CONTACT</NavLink>
