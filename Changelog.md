@@ -22,3 +22,5 @@
 ## **Author**: Baron Chibuikem
 
 1. Implemented design for Login, Signup and Payment components and integrated them into UserAuthComponent
+2. Added redux to the project and configured it
+3. Added frontend form validation on the Signup registration form component
