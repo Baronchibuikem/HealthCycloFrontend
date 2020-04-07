@@ -28,19 +28,19 @@ const Homepage = () => {
 
 						<div className="row my-4">
 							<div className="col-md-1 col-sm-12">
-								<h1 className="">50+</h1>
+								<h1 className="text-white">50+</h1>
 								<small>Topics</small>
 							</div>
 							<div className="col-md-1 col-sm-12 text-center">
-								<h1 className="">200+</h1>
+								<h1 className="text-white">200+</h1>
 								<small>INDICATORS</small>
 							</div>
 							<div className="col-md-2 col-sm-12 text-center">
-								<h1 className="">10+</h1>
+								<h1 className="text-white">10+</h1>
 								<small>DATA SOURCES</small>
 							</div>
 							<div className="col-md-1 col-sm-12">
-								<h1 className="">300+</h1>
+								<h1 className="text-white">300+</h1>
 								<small>RESOURCES</small>
 							</div>
 						</div>
@@ -137,16 +137,16 @@ const Homepage = () => {
 							HealthThink Database currently contains:
 						</h6>
 						<div className="row ">
-							<div className="col-md-4 col-sm-12 background_text text-white">
+							<div className="col-md-4 col-sm-12 text-white">
 								<div className="row">
 									<div className="col-md-4 col-sm-12 my-4">
-										<h1 className="display-4">50+</h1>
+										<h1 className="display-4 text-white">50+</h1>
 										<span>
 											<small>TOPICS</small>
 										</span>
 									</div>
 									<div className="col-md-8 col-sm-12 my-4">
-										<h1 className="display-4 mr-3">200+</h1>
+										<h1 className="display-4 mr-3 text-white">200+</h1>
 										<span>
 											<small>INSIGHTS</small>
 										</span>
@@ -154,13 +154,13 @@ const Homepage = () => {
 								</div>
 								<div className="row">
 									<div className="col-md-4 col-sm-12">
-										<h1 className="display-4">10+</h1>
+										<h1 className="display-4 text-white">10+</h1>
 										<span>
 											<small> SOURCES</small>
 										</span>
 									</div>
 									<div className="col-md-8 col-sm-12 mx-auto">
-										<h1 className="display-4">300+</h1>
+										<h1 className="display-4 text-white">300+</h1>
 										<span>
 											<small>RESOURCES</small>
 										</span>

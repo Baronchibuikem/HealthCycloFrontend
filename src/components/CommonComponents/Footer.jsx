@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Button from "../ReusableComponents/Button";
 import footerLogo from "../../assets/images/logo.png";
 
@@ -46,8 +46,8 @@ export default function Footer() {
 									</li>
 								</ul>
 							</div>
-							<div class="col-md-2 col-sm-12">
-								<ul class="list-unstyled">
+							<div className="col-md-2 col-sm-12">
+								<ul className="list-unstyled">
 									<h6 className="text-light">SOLUTIONS</h6>
 									<li>
 										<small>Data Broking</small>

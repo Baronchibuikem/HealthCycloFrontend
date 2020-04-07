@@ -79,16 +79,18 @@ class Navbar extends Component {
 					<NavLink to="/faq">FAQ'S</NavLink>
 				</MDBNavItem>
 				<MDBNavItem className="mt-2">
-					<NavLink to="/">CONTACT</NavLink>
+					<NavLink to="/contact">CONTACT</NavLink>
 				</MDBNavItem>
 				<MDBNavItem className="d-flex">
-					<Button color="#413A76" textcolor="white" width="150px">
-						LOGIN
-					</Button>
+					<NavLink to="/authentication">
+						<Button color="#413A76" textcolor="white" width="150px">
+							LOGIN
+						</Button>
+					</NavLink>
 
-					<Button color="white" textcolor="black" width="55%">
+					{/* <Button color="white" textcolor="black" width="100%">
 						START FOR FREE
-					</Button>
+					</Button> */}
 				</MDBNavItem>
 			</Fragment>
 		);
@@ -96,13 +98,9 @@ class Navbar extends Component {
 		return (
 			<div>
 				<header>
-					<MDBNavbar
-						dark
-						expand="sm"
-						fixed="top"
-						className="z-depth-5 bg-white">
+					<MDBNavbar dark expand="sm" fixed="top" className=" bg-white">
 						<MDBContainer>
-							<MDBNavbarToggler onClick={this.onClick} />
+							<MDBNavbarToggler onClick={this.onClick} className="bg-dark" />
 							<MDBCollapse isOpen={this.state.collapse} navbar>
 								<MDBNavbarNav left>
 									<img src={logo} alt="logo" width="40%" />
