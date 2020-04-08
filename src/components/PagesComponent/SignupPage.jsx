@@ -81,8 +81,7 @@ class SignupPage extends Component {
 				passwordError: "Password must not be empty"
 			});
 		}
-
-		if (password.length === 8) {
+		if (password.length < 8) {
 			this.setState({
 				show: true,
 				passwordLengthError: "Password must have a minimum of 8 characters"
@@ -95,7 +94,7 @@ class SignupPage extends Component {
 			designation &&
 			purpose_of_data &&
 			email &&
-			password
+			password.length > 8
 		) {
 			this.handleShowPaymentForm();
 		} else {
