@@ -17,7 +17,7 @@ class SignupPage extends Component {
 		purpose_of_data_error: "",
 		emailError: "",
 		passwordError: "",
-		// passwordLengthError: "",
+		passwordLengthError: "",
 		organizationError: ""
 	};
 
@@ -79,6 +79,13 @@ class SignupPage extends Component {
 			this.setState({
 				show: true,
 				passwordError: "Password must not be empty"
+			});
+		}
+
+		if (password.length === 8) {
+			this.setState({
+				show: true,
+				passwordLengthError: "Password must have a minimum of 8 characters"
 			});
 		}
 
@@ -174,6 +181,9 @@ class SignupPage extends Component {
 						/>
 						<span className="text-danger font-weight-bold">
 							{this.state.passwordError}
+						</span>
+						<span className="text-danger font-weight-bold">
+							{this.state.passwordLengthError}
 						</span>
 					</div>
 					<div className="row mt-3">
