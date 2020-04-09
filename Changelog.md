@@ -36,3 +36,6 @@
 ## **Author**: Baron Chibuikem
 
 1. Connected Login page and Logout functionality to work with the Api endpoint provided by the backend using redux
+2. Implemented design for BrowseData component
+3. Made the Navbar component dynamic base on whether a user is authenticated or not
+4. Implemented functionality to make components inaccessible to the public unless they are authenticated

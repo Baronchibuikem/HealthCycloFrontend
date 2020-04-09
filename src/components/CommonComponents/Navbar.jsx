@@ -17,7 +17,7 @@ import PropTypes from "prop-types";
 import { logout } from "../../store/actions/userAuthentication";
 
 import Button from "../ReusableComponents/Button";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.svg";
 
 class Navbar extends Component {
 	state = {
@@ -25,7 +25,7 @@ class Navbar extends Component {
 	};
 
 	static propTypes = {
-		auth: PropTypes.bool,
+		auth: PropTypes.object.isRequired,
 		logout: PropTypes.func.isRequired
 	};
 
@@ -36,33 +36,35 @@ class Navbar extends Component {
 	};
 
 	render() {
-		// const { isAuthenticated, user } = this.props.auth;
+		const { isAuthenticated, user } = this.props.auth;
 
 		// This components are shown if a user is authenticated
 		const authlinks = (
 			<Fragment>
-				<MDBNavItem>
-					<NavLink to="/">Browse Data</NavLink>
+				<MDBNavItem className="mt-2">
+					<NavLink to="/browsedata">BROWSE DATA</NavLink>
 				</MDBNavItem>
-				<MDBNavItem>
-					<NavLink to="/">Resources</NavLink>
+				<MDBNavItem className="mt-2">
+					<NavLink to="/">RESOURCES</NavLink>
 				</MDBNavItem>
 
-				<MDBNavItem>
-					<NavLink to="">RequestData/SubmitData</NavLink>
+				<MDBNavItem className="mt-2">
+					<NavLink to="">REQUEST/SUBMIT DATA</NavLink>
+				</MDBNavItem>
+				<MDBNavItem className="mt-2">
+					<NavLink to="/">HEALTHTHINK BLOG</NavLink>
 				</MDBNavItem>
 				<MDBNavItem>
-					<NavLink to="/">HealthThink Blog</NavLink>
-				</MDBNavItem>
-				<MDBNavItem>
-					<MDBDropdown size="lg">
-						<MDBDropdownToggle caret color="danger">
-							Large button
+					<MDBDropdown size="md">
+						<MDBDropdownToggle caret color="secondary">
+							{user ? `${user.fullname}` : ""}
 						</MDBDropdownToggle>
-						<MDBDropdownMenu color="danger" basic>
-							<MDBDropdownItem>Action</MDBDropdownItem>
-							<MDBDropdownItem>Another Action</MDBDropdownItem>
-							<MDBDropdownItem>Something else here</MDBDropdownItem>
+						<MDBDropdownMenu color="secondary" basic>
+							<MDBDropdownItem>Profile</MDBDropdownItem>
+							<MDBDropdownItem>Account Details</MDBDropdownItem>
+							<MDBDropdownItem>Download History</MDBDropdownItem>
+							<MDBDropdownItem>Settings</MDBDropdownItem>
+							<hr />
 							<MDBDropdownItem onClick={this.props.logout}>
 								Logout
 							</MDBDropdownItem>
@@ -112,7 +114,7 @@ class Navbar extends Component {
 									<img src={logo} alt="logo" width="40%" />
 								</MDBNavbarNav>
 								<MDBNavbarNav center>
-									{this.props.auth ? authlinks : guestLinks}
+									{isAuthenticated ? authlinks : guestLinks}
 								</MDBNavbarNav>
 							</MDBCollapse>
 						</MDBContainer>
@@ -124,6 +126,6 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-	auth: state.userAuth.isAuthenticated
+	auth: state.userAuth
 });
 export default connect(mapStateToProps, { logout })(Navbar);

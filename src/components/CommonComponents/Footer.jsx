@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import Button from "../ReusableComponents/Button";
-import footerLogo from "../../assets/images/logo.png";
+import footerLogo from "../../assets/images/logo.svg";
 
 export default function Footer() {
 	return (
@@ -21,7 +21,7 @@ export default function Footer() {
 									<small>
 										Product of{" "}
 										<span style={{ textDecoration: "underline" }}>
-											eHealth4everyone
+											Health4everyone
 										</span>
 									</small>
 								</h6>
@@ -102,7 +102,7 @@ export default function Footer() {
 										<small>+2349021720570</small>
 									</li>
 									<li>
-										<small>info@eHealth4everyone.com</small>
+										<small>info@Health4everyone.com</small>
 									</li>
 								</ul>
 							</div>

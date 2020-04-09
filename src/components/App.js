@@ -8,9 +8,9 @@ import Navbar from "./CommonComponents/Navbar";
 import Footer from "./CommonComponents/Footer";
 
 export default class App extends Component {
-	// componentDidMount() {
-	// 	store.dispatch(loadUser());
-	// }
+	componentDidMount() {
+		store.dispatch(loadUser());
+	}
 	render() {
 		return (
 			<Provider store={store}>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Button from "../ReusableComponents/Button";
 import { login } from "../../store/actions/userAuthentication";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -26,7 +25,7 @@ class LoginPage extends Component {
 
 	render() {
 		if (this.props.authenticate) {
-			return <Redirect to="/" />;
+			return <Redirect to="/dashboard" />;
 		}
 		return (
 			<div className="my-3">

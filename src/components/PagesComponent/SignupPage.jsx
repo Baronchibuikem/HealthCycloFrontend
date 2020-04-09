@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Button from "../ReusableComponents/Button";
 import Payment from "./PaymentPage";
+import { Redirect } from "react-router-dom";
 
 class SignupPage extends Component {
 	state = {
@@ -107,6 +107,9 @@ class SignupPage extends Component {
 	};
 	render() {
 		const { show } = this.state;
+		if (this.props.authenticate) {
+			return <Redirect to="/dashboard" />;
+		}
 
 		const signup = (
 			<div className="my-3">

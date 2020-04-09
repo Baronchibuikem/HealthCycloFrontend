@@ -1,0 +1,8 @@
+.DashImg1 {
+	background-image: url("../../assets/images/dashImg1.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	height: 250px;
+}
