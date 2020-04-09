@@ -1,11 +1,46 @@
 import React, { Component } from "react";
-import Button from "../ReusableComponents/Button";
+// import Button from "../ReusableComponents/Button";
 import masterCard from "../../assets/images/masterCard.jpg";
 import visaCard from "../../assets/images/visa.jpeg";
+import { register } from "../../store/actions/userAuthentication";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class PaymentPage extends Component {
+	state = {
+		free: "free",
+		standard: "$99.99",
+		business: "$149.99",
+		price: ""
+	};
+
+	static propTypes = {
+		register: PropTypes.func.isRequired,
+		authenticate: PropTypes.bool
+	};
 	showSignup = () => {
 		this.props.showPayment(true);
+	};
+
+	submitForms = e => {
+		e.preventDefault();
+		const {
+			fullname,
+			designation,
+			organization,
+			purpose_of_data,
+			password,
+			email
+		} = this.props.values;
+		const newUser = {
+			fullname,
+			designation,
+			organization,
+			purpose_of_data,
+			password,
+			email
+		};
+		this.props.register(newUser);
 	};
 	render() {
 		return (
@@ -21,8 +56,11 @@ class PaymentPage extends Component {
 				</div>
 
 				<div className="row mt-4 d-flex justify-content-center">
-					<div
+					<button
 						className="col-md-3 col-sm-12 shadow text-center"
+						onClick={e => {
+							this.setState({ price: this.state.free });
+						}}
 						style={{
 							backgroundColor: "#413A76",
 							cursor: "pointer",
@@ -30,11 +68,14 @@ class PaymentPage extends Component {
 						}}>
 						<div className="py-5">
 							<h6 className="text-light">Basic</h6>
-							{/* <h4>{{ free }}</h4> */}
+							<h4 className="text-light">{this.state.free}</h4>
 						</div>
-					</div>
-					<div
+					</button>
+					<button
 						className="col-md-3 col-sm-12 mx-5 text-center"
+						onClick={e => {
+							this.setState({ price: this.state.standard });
+						}}
 						style={{
 							backgroundColor: "#413A76",
 							cursor: "pointer",
@@ -42,11 +83,14 @@ class PaymentPage extends Component {
 						}}>
 						<div className="py-5">
 							<h6 className="text-light">Standard</h6>
-							{/* <h4>{{ standard }}</h4> */}
+							<h4 className="text-light">{this.state.standard}</h4>
 						</div>
-					</div>
-					<div
+					</button>
+					<button
 						className="col-md-3 col-sm-12 text-center"
+						onClick={e => {
+							this.setState({ price: this.state.business });
+						}}
 						style={{
 							backgroundColor: "#413A76",
 							cursor: "pointer",
@@ -54,9 +98,9 @@ class PaymentPage extends Component {
 						}}>
 						<div className="py-5">
 							<h6 className="text-light">Business</h6>
-							{/* <h4>{{ business }}</h4> */}
+							<h4 className="text-light">{this.state.business}</h4>
 						</div>
-					</div>
+					</button>
 				</div>
 
 				<div className="mt-4">
@@ -109,7 +153,7 @@ class PaymentPage extends Component {
 						</div>
 						<div className="d-flex justify-content-between my-5 font-weight-bold">
 							<h5 className="">Total Billed</h5>
-							{/* <h5 className="">{{ price }}</h5> */}
+							<h3 className="">{this.state.price}</h3>
 						</div>
 						<p>
 							By purchasing, I agree to the Terms and Conditions and Privacy
@@ -129,9 +173,17 @@ class PaymentPage extends Component {
 							Previous
 						</button>
 
-						<Button textcolor="white" color="#413A76" width="30%">
-							SUBMIT
-						</Button>
+						<button
+							className="form-control"
+							type="submit"
+							style={{
+								color: "white",
+								width: "30%",
+								backgroundColor: "#413A76"
+							}}
+							onClick={this.submitForms}>
+							Submit
+						</button>
 					</div>
 				</div>
 			</div>
@@ -139,4 +191,8 @@ class PaymentPage extends Component {
 	}
 }
 
-export default PaymentPage;
+const mapStateToProps = state => ({
+	authenticate: state.userAuth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { register })(PaymentPage);

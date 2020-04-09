@@ -10,6 +10,7 @@ import {
 	REGISTER_SUCCESS
 } from "./actionTypes";
 import axios from "axios";
+import route from "../../ApiClient";
 
 // CHECK TOKEN & LOAD USER
 export const loadUser = () => async (dispatch, getState) => {
@@ -58,18 +59,32 @@ export const login = (username, password) => async dispatch => {
 };
 
 // Register user
-export const register = ({ username, password, email }) => async dispatch => {
-	// const config = {
-	//   headers: {
-	//     "Content-Type": "application/json"
-	//   }
-	// };
+export const register = ({
+	fullname,
+	designation,
+	organization,
+	purpose_of_data,
+	password,
+	email
+}) => async dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
 
 	// Request Body
-	const body = JSON.stringify({ username, password, email });
+	const body = JSON.stringify({
+		fullname,
+		designation,
+		organization,
+		purpose_of_data,
+		password,
+		email
+	});
 
-	axios
-		.post("/api/auth/register", body, tokenConfig())
+	route
+		.post("/api/v1/account/auth/register", body, config)
 		.then(res => {
 			dispatch({
 				type: REGISTER_SUCCESS,

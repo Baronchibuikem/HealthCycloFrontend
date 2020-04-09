@@ -210,7 +210,9 @@ class SignupPage extends Component {
 				</form>
 			</div>
 		);
-		const payment = <Payment showPayment={this.handleShowSignupForm} />;
+		const payment = (
+			<Payment showPayment={this.handleShowSignupForm} values={this.state} />
+		);
 
 		return <div>{show ? signup : payment}</div>;
 	}
