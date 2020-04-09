@@ -5,25 +5,29 @@ import {
 	MDBNavbarToggler,
 	MDBCollapse,
 	MDBNavItem,
-	MDBContainer
+	MDBContainer,
+	MDBDropdown,
+	MDBDropdownToggle,
+	MDBDropdownMenu,
+	MDBDropdownItem
 } from "mdbreact";
 import { Link as NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../store/actions/userAuthentication";
 
 import Button from "../ReusableComponents/Button";
 import logo from "../../assets/images/logo.png";
-// import { connect } from "react-redux";
-// import PropTypes from "prop-types";
-// import { logout } from "../../store/actions/auth";
 
 class Navbar extends Component {
 	state = {
 		collapse: false
 	};
 
-	//   static propTypes = {
-	//     auth: PropTypes.object.isRequired,
-	//     logout: PropTypes.func.isRequired
-	//   };
+	static propTypes = {
+		auth: PropTypes.bool,
+		logout: PropTypes.func.isRequired
+	};
 
 	onClick = () => {
 		this.setState({
@@ -38,31 +42,33 @@ class Navbar extends Component {
 		const authlinks = (
 			<Fragment>
 				<MDBNavItem>
-					<NavLink to="/">ABOUT</NavLink>
+					<NavLink to="/">Browse Data</NavLink>
 				</MDBNavItem>
 				<MDBNavItem>
-					<NavLink to="/">INSIGHTS</NavLink>
-				</MDBNavItem>
-
-				<MDBNavItem>
-					<NavLink to="/faq">FAQ'S</NavLink>
-				</MDBNavItem>
-				<MDBNavItem>
-					<NavLink to="/">CONTACT</NavLink>
-				</MDBNavItem>
-				<MDBNavItem>
-					<NavLink to="/">PATIENT</NavLink>
-				</MDBNavItem>
-				<MDBNavItem>
-					<NavLink to="/">EVENTS</NavLink>
+					<NavLink to="/">Resources</NavLink>
 				</MDBNavItem>
 
-				{/* 				
 				<MDBNavItem>
-					<NavLink  onClick={this.props.logout}>
-						LOGOUT
-					</NavLink>
-				</MDBNavItem> */}
+					<NavLink to="">RequestData/SubmitData</NavLink>
+				</MDBNavItem>
+				<MDBNavItem>
+					<NavLink to="/">HealthThink Blog</NavLink>
+				</MDBNavItem>
+				<MDBNavItem>
+					<MDBDropdown size="lg">
+						<MDBDropdownToggle caret color="danger">
+							Large button
+						</MDBDropdownToggle>
+						<MDBDropdownMenu color="danger" basic>
+							<MDBDropdownItem>Action</MDBDropdownItem>
+							<MDBDropdownItem>Another Action</MDBDropdownItem>
+							<MDBDropdownItem>Something else here</MDBDropdownItem>
+							<MDBDropdownItem onClick={this.props.logout}>
+								Logout
+							</MDBDropdownItem>
+						</MDBDropdownMenu>
+					</MDBDropdown>
+				</MDBNavItem>
 			</Fragment>
 		);
 
@@ -106,8 +112,7 @@ class Navbar extends Component {
 									<img src={logo} alt="logo" width="40%" />
 								</MDBNavbarNav>
 								<MDBNavbarNav center>
-									{/* {isAuthenticated ? authlinks : guestLinks} */}
-									{guestLinks}
+									{this.props.auth ? authlinks : guestLinks}
 								</MDBNavbarNav>
 							</MDBCollapse>
 						</MDBContainer>
@@ -118,12 +123,7 @@ class Navbar extends Component {
 	}
 }
 
-// const mapStateToProps = state => ({
-//   auth: state.auth
-// });
-// export default connect(
-//   mapStateToProps,
-//   { logout }
-// )(Navbar);
-
-export default Navbar;
+const mapStateToProps = state => ({
+	auth: state.userAuth.isAuthenticated
+});
+export default connect(mapStateToProps, { logout })(Navbar);

@@ -29,4 +29,10 @@
 
 ## **Author**: Baron Chibuikem
 
-1. connected Signup page to work with the Api endpoint provided by the backend using redux
+1. Connected Signup and Payment page to work with the Api endpoint provided by the backend using redux
+
+# **DATE**: 09-04-2020
+
+## **Author**: Baron Chibuikem
+
+1. Connected Login page and Logout functionality to work with the Api endpoint provided by the backend using redux

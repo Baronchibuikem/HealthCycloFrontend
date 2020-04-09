@@ -13,48 +13,37 @@ import axios from "axios";
 import route from "../../ApiClient";
 
 // CHECK TOKEN & LOAD USER
-export const loadUser = () => async (dispatch, getState) => {
-	// uSER LOADING
-	dispatch({ type: USER_LOADING });
+// export const loadUser = () => (dispatch, getState) => {
+// 	// uSER LOADING
+// 	dispatch({ type: USER_LOADING });
 
-	axios
-		.get("/api/auth/user", tokenConfig(getState))
-		.then(res => {
-			dispatch({
-				type: USER_LOADED,
-				payload: res.data
-			});
-		})
-		.catch(err => {
-			dispatch({
-				type: AUTH_ERROR
-			});
-		});
-};
+// 	axios
+// 		.get("/api/v1/account/users/", tokenConfig(getState))
+// 		.then(res => {
+// 			dispatch({
+// 				type: USER_LOADED,
+// 				payload: res.data
+// 			});
+// 		})
+// 		.catch(err => {
+// 			dispatch({
+// 				type: AUTH_ERROR
+// 			});
+// 		});
+// };
 
 // LOGIN USER
-export const login = (username, password) => async dispatch => {
-	const config = {
-		headers: {
-			"Content-Type": "application/json"
-		}
-	};
-
-	// Request Body
-	const body = JSON.stringify({ username, password });
-
-	axios
-		.post("/api/auth/login", body, config)
+export const login = ({ email, password }) => dispatch => {
+	dispatch({ type: USER_LOADING });
+	const config = { headers: { "Content-Type": "application/json" } };
+	const body = JSON.stringify({ email, password });
+	route
+		.post("/api/v1/account/auth/login", body, config)
 		.then(res => {
-			dispatch({
-				type: LOGIN_SUCCESS,
-				payload: res.data
-			});
+			dispatch({ type: LOGIN_SUCCESS, payload: res.data });
 		})
-		.catch(err => {
-			dispatch({
-				type: LOGIN_FAIL
-			});
+		.catch(() => {
+			dispatch({ type: LOGIN_FAIL });
 		});
 };
 
@@ -66,14 +55,8 @@ export const register = ({
 	purpose_of_data,
 	password,
 	email
-}) => async dispatch => {
-	const config = {
-		headers: {
-			"Content-Type": "application/json"
-		}
-	};
-
-	// Request Body
+}) => dispatch => {
+	const config = { headers: { "Content-Type": "application/json" } };
 	const body = JSON.stringify({
 		fullname,
 		designation,
@@ -86,22 +69,17 @@ export const register = ({
 	route
 		.post("/api/v1/account/auth/register", body, config)
 		.then(res => {
-			dispatch({
-				type: REGISTER_SUCCESS,
-				payload: res.data
-			});
+			dispatch({ type: REGISTER_SUCCESS, payload: res.data });
 		})
 		.catch(err => {
-			dispatch({
-				type: REGISTER_FAIL
-			});
+			dispatch({ type: REGISTER_FAIL });
 		});
 };
 
 // LOGOUT USER
-export const logout = () => async (dispatch, getState) => {
-	axios
-		.post("/api/auth/logout", null, tokenConfig(getState))
+export const logout = () => (dispatch, getState) => {
+	route
+		.post("/api/v1/account/auth/logout", null, tokenConfig(getState))
 		.then(res => {
 			dispatch({
 				type: LOGOUT_SUCCESS
@@ -118,7 +96,7 @@ export const logout = () => async (dispatch, getState) => {
 
 export const tokenConfig = getState => {
 	// Get token
-	const token = getState().auth.token;
+	const token = getState().userAuth.token;
 
 	// Headers
 	const config = {

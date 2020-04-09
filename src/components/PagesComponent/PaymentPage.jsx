@@ -105,7 +105,7 @@ class PaymentPage extends Component {
 
 				<div className="mt-4">
 					<h4>Secure Payment Information</h4>
-					<form>
+					<form onSubmit={this.submitForms}>
 						<div className="my-2">
 							<label>NAME ON CARD</label>
 							<input type="text" name="" className="form-control" />

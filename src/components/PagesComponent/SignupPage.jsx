@@ -21,6 +21,8 @@ class SignupPage extends Component {
 		organizationError: ""
 	};
 
+	// This function is used to change the state of show to false to show
+	// payment component. It's is dependent on other logics in this component though
 	handleShowPaymentForm = () => {
 		this.setState({
 			show: false
