@@ -7,13 +7,14 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
 		{...rest}
 		render={props => {
 			if (auth.isLoading) {
-				return (
-					<div className="d-flex align-items-center justify-content-center">
-						<div className="h-100 spinner-border" role="status">
-							<span class="sr-only">Loading...</span>
-						</div>
-					</div>
-				);
+				return <h2 className="text-center mt-5 pt-5">Loading</h2>;
+				// return (
+				// 	<div className="d-flex align-items-center justify-content-center">
+				// 		<div className="h-100 spinner-border" role="status">
+				// 			<span class="sr-only">Loading...</span>
+				// 		</div>
+				// 	</div>
+				// );
 			} else if (!auth.isAuthenticated) {
 				return <Redirect to="/authentication" />;
 			} else {

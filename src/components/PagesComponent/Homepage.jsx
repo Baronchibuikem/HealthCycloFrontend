@@ -289,6 +289,9 @@ const Homepage = () => {
 					</div>
 				</div>
 			</div>
+			<div className="container-fluid my-5">
+				{/* This space is reserved for a slider testimonial */}
+			</div>
 
 			<section id="subscribe_to_newletter my-5">
 				<div class="container">

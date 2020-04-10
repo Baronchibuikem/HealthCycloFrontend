@@ -103,6 +103,13 @@ class Navbar extends Component {
 			</Fragment>
 		);
 
+		const LinkedImage = (
+			<NavLink exact to="/">
+				<img src={logo} alt="logo" width="40%" />
+			</NavLink>
+		);
+		const UnlinkedImage = <img src={logo} alt="logo" width="40%" />;
+
 		return (
 			<div>
 				<header>
@@ -111,7 +118,7 @@ class Navbar extends Component {
 							<MDBNavbarToggler onClick={this.onClick} className="bg-dark" />
 							<MDBCollapse isOpen={this.state.collapse} navbar>
 								<MDBNavbarNav left>
-									<img src={logo} alt="logo" width="40%" />
+									{isAuthenticated ? LinkedImage : UnlinkedImage}
 								</MDBNavbarNav>
 								<MDBNavbarNav center>
 									{isAuthenticated ? authlinks : guestLinks}

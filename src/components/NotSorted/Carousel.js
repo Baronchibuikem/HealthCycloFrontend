@@ -8,6 +8,8 @@ import {
 	MDBMask,
 	MDBContainer
 } from "mdbreact";
+import img1 from "../../assets/images/AboutImg1.png";
+import img2 from "../../assets/images/AboutImg10.png";
 
 const CarouselPage = () => {
 	return (
@@ -20,40 +22,20 @@ const CarouselPage = () => {
 				className="z-depth-1">
 				<MDBCarouselInner>
 					<MDBCarouselItem itemId="1">
-						<MDBView>
-							<img
-								className="d-block w-100"
-								src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-								alt="First slide"
-							/>
-							<MDBMask overlay="black-light" />
-						</MDBView>
 						<MDBCarouselCaption>
 							<h3 className="h3-responsive">Light mask</h3>
-							<p>First text</p>
+							<p>First text Lorem bsfjksbfksbdfksbdkbssbbk</p>
 						</MDBCarouselCaption>
 					</MDBCarouselItem>
 					<MDBCarouselItem itemId="2">
-						<MDBView>
-							<img
-								className="d-block w-100"
-								src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-								alt="Second slide"
-							/>
-							<MDBMask overlay="black-strong" />
-						</MDBView>
 						<MDBCarouselCaption>
 							<h3 className="h3-responsive">Strong mask</h3>
-							<p>Second text</p>
+							<p>Second text sdbchsdbfsdbfhbsdfbsfbjsdb</p>
 						</MDBCarouselCaption>
 					</MDBCarouselItem>
 					<MDBCarouselItem itemId="3">
 						<MDBView>
-							<img
-								className="d-block w-100"
-								src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-								alt="Third slide"
-							/>
+							<h1>ksNDFklanslnlwejtawjomkdck crrjwrwirjioe rjweo</h1>
 							<MDBMask overlay="black-slight" />
 						</MDBView>
 						<MDBCarouselCaption>

@@ -1,6 +1,5 @@
 import {
 	USER_LOADED,
-	AUTH_ERROR,
 	LOGIN_FAIL,
 	LOGIN_SUCCESS,
 	LOGOUT_SUCCESS,
@@ -9,32 +8,48 @@ import {
 	REGISTER_SUCCESS
 } from "./actionTypes";
 import route from "../../ApiClient";
+// import axios from "axios";
 
-// CHECK TOKEN & LOAD USER
-export const loadUser = () => (dispatch, getState) => {
-	// // uSER LOADING
-	// dispatch({ type: USER_LOADING });
-	route
-		.get("/api/v1/account/users/", tokenConfig(getState))
-		.then(res => {
-			dispatch({ type: USER_LOADED, payload: res.data });
-		})
-		.catch(() => {
-			dispatch({ type: AUTH_ERROR });
-		});
+// // CHECK TOKEN & LOAD USER
+// export const loadUser = () => async (dispatch, getState) => {
+// 	// // uSER LOADING
+// 	dispatch({ type: USER_LOADING });
+// 	route
+// 		.get("api/v1/account/auth/user", tokenConfig(getState))
+// 		.then(res => {
+// 			dispatch({ type: USER_LOADED, payload: res.data });
+// 		})
+// 		.catch(err => {
+// 			dispatch({ type: AUTH_ERROR });
+// 		});
+// };
+
+export const loadUser = () => {
+	return async (dispatch, getState) => {
+		const response = await route.get(
+			"api/v1/account/auth/user",
+			tokenConfig(getState)
+		);
+		dispatch({ type: USER_LOADED, payload: response.data });
+	};
 };
 
 // LOGIN USER
-export const login = ({ email, password }) => (dispatch, getState) => {
+export const login = ({ email, password }) => async dispatch => {
+	const config = {
+		headers: {
+			"Content-Type": "application/json"
+		}
+	};
 	const body = JSON.stringify({ email, password });
 	route
-		.post("/api/v1/account/auth/login", body, tokenConfig(getState))
+		.post("/api/v1/account/auth/login", body, config)
 		.then(res => {
 			dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-			console.log("WELCOME to payload", res.data);
 		})
-		.catch(() => {
+		.catch(err => {
 			dispatch({ type: LOGIN_FAIL });
+			console.log(err);
 		});
 };
 
@@ -46,7 +61,7 @@ export const register = ({
 	purpose_of_data,
 	password,
 	email
-}) => dispatch => {
+}) => async dispatch => {
 	const config = { headers: { "Content-Type": "application/json" } };
 	const body = JSON.stringify({
 		fullname,
@@ -64,6 +79,7 @@ export const register = ({
 		})
 		.catch(err => {
 			dispatch({ type: REGISTER_FAIL });
+			console.log(err);
 		});
 };
 
@@ -71,7 +87,7 @@ export const register = ({
 export const logout = () => (dispatch, getState) => {
 	route
 		.post("/api/v1/account/auth/logout", null, tokenConfig(getState))
-		.then(() => {
+		.then(res => {
 			dispatch({
 				type: LOGOUT_SUCCESS
 			});
@@ -80,6 +96,7 @@ export const logout = () => (dispatch, getState) => {
 			dispatch({
 				type: LOGOUT_FAIL
 			});
+			console.log(err);
 		});
 };
 
