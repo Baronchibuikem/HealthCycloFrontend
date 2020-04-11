@@ -94,7 +94,7 @@ const Homepage = () => {
 						<Card
 							icon={keyIcon}
 							buttonTitle="Contact us"
-							link="/"
+							link="/contact"
 							title="One-Time Data Access">
 							<p>
 								This plan would allow you a one-time, limited access into our
@@ -107,7 +107,7 @@ const Homepage = () => {
 						<Card
 							icon={consultationIcon}
 							buttonTitle="Contact us"
-							link="/"
+							link="/contact"
 							title="On-Demand Consultancy Services">
 							<p>
 								We are available for consultations on data acquisition,
@@ -119,7 +119,7 @@ const Homepage = () => {
 						<Card
 							icon={coinIcon}
 							buttonTitle="View Plans"
-							link="/about"
+							link="/plan"
 							title="Subscription Plans">
 							<p>
 								We are available for consultations on data acquisition,
@@ -178,7 +178,7 @@ const Homepage = () => {
 										</small>
 									</div>
 									<div className="col-md-7 col-sm-12">
-										<Link to="/login">
+										<Link to="/browsedata">
 											<Button color="#413A76" textcolor="white" width="100%">
 												BROWSE DATA
 											</Button>
@@ -224,7 +224,7 @@ const Homepage = () => {
 								request and we’ll make it happen.
 							</p>
 							<v-btn large color="#413A76" className="text-light my-6">
-								<Link to="/">
+								<Link to="/requestdata">
 									<Button color="#413A76" textcolor="white" width="50%">
 										REQUEST DATA
 									</Button>
@@ -244,7 +244,7 @@ const Homepage = () => {
 								If you have a dataset you would like to share with a larger
 								audience, you can submit data here
 							</p>
-							<Link to="/">
+							<Link to="/submitdata">
 								<Button color="#413A76" textcolor="white" width="50%">
 									SEND DATA
 								</Button>
@@ -258,7 +258,7 @@ const Homepage = () => {
 						<div className="pt-5 mt-5 col-md-8 mx-auto">
 							<h4 className="my-6">Insights</h4>
 							<p>Fully explore the length and breadth of available data</p>
-							<Link to="/">
+							<Link to="/insight">
 								<Button color="#413A76" textcolor="white" width="50%">
 									VIEW INSIGHTS
 								</Button>

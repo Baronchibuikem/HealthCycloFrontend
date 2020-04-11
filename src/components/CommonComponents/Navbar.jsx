@@ -118,7 +118,7 @@ class Navbar extends Component {
 							<MDBNavbarToggler onClick={this.onClick} className="bg-dark" />
 							<MDBCollapse isOpen={this.state.collapse} navbar>
 								<MDBNavbarNav left>
-									{isAuthenticated ? LinkedImage : UnlinkedImage}
+									{isAuthenticated ? UnlinkedImage : LinkedImage}
 								</MDBNavbarNav>
 								<MDBNavbarNav center>
 									{isAuthenticated ? authlinks : guestLinks}
