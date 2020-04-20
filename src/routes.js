@@ -10,6 +10,7 @@ import PrivateRoute from "./components/UtilityComponents/SecuredRoutes";
 import BrowseDataPage from "./components/PagesComponent/BrowseDataPage";
 import RequestDataPage from "./components/PagesComponent/RequestDataPage";
 import PlanPage from "./components/PagesComponent/PlanPage";
+import SubmitDataPage from "./components/PagesComponent/SubmitDataPage";
 
 const BaseRouter = () => (
 	<Switch>
@@ -19,6 +20,7 @@ const BaseRouter = () => (
 		<Route exact path="/contact" component={ContactUsPage} />
 		<Route exact path="/authentication" component={UserAuthComponent} />
 		<Route exact path="/requestdata" component={RequestDataPage} />
+		<Route exact path="/submitdata" component={SubmitDataPage} />
 		<Route exact path="/plan" component={PlanPage} />
 		<PrivateRoute exact path="/dashboard" component={Dashboard} />
 		<PrivateRoute exact path="/browsedata" component={BrowseDataPage} />

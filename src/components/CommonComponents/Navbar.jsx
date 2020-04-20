@@ -48,8 +48,16 @@ class Navbar extends Component {
 					<NavLink to="/">RESOURCES</NavLink>
 				</MDBNavItem>
 
-				<MDBNavItem className="mt-2">
-					<NavLink to="">REQUEST/SUBMIT DATA</NavLink>
+				<MDBNavItem className="">
+				<MDBDropdown size="md">
+						<MDBDropdownToggle caret color="white">
+							<small>REQUEST/SUBMIT DATA</small>
+						</MDBDropdownToggle>
+						<MDBDropdownMenu color="secondary" basic>
+							<MDBDropdownItem><NavLink to="/requestdata">Request Data</NavLink></MDBDropdownItem>
+							<MDBDropdownItem><NavLink to="/submitdata">Submit Data</NavLink></MDBDropdownItem>
+						</MDBDropdownMenu>
+					</MDBDropdown>
 				</MDBNavItem>
 				<MDBNavItem className="mt-2">
 					<NavLink to="/">HEALTHTHINK BLOG</NavLink>
