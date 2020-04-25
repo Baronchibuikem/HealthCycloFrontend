@@ -49,13 +49,17 @@ class Navbar extends Component {
 				</MDBNavItem>
 
 				<MDBNavItem className="">
-				<MDBDropdown size="md">
+					<MDBDropdown size="md">
 						<MDBDropdownToggle caret color="white">
 							<small>REQUEST/SUBMIT DATA</small>
 						</MDBDropdownToggle>
 						<MDBDropdownMenu color="secondary" basic>
-							<MDBDropdownItem><NavLink to="/requestdata">Request Data</NavLink></MDBDropdownItem>
-							<MDBDropdownItem><NavLink to="/submitdata">Submit Data</NavLink></MDBDropdownItem>
+							<MDBDropdownItem>
+								<NavLink to="/requestdata">Request Data</NavLink>
+							</MDBDropdownItem>
+							<MDBDropdownItem>
+								<NavLink to="/submitdata">Submit Data</NavLink>
+							</MDBDropdownItem>
 						</MDBDropdownMenu>
 					</MDBDropdown>
 				</MDBNavItem>
@@ -111,12 +115,12 @@ class Navbar extends Component {
 			</Fragment>
 		);
 
-		const LinkedImage = (
-			<NavLink exact to="/">
-				<img src={logo} alt="logo" width="40%" />
-			</NavLink>
-		);
-		const UnlinkedImage = <img src={logo} alt="logo" width="40%" />;
+		// const LinkedImage = (
+		// 	<NavLink exact to="/">
+		// 		<img src={logo} alt="logo" width="10%" />
+		// 	</NavLink>
+		// );
+		// const UnlinkedImage = <img src={logo} alt="logo" width="10%" />;
 
 		return (
 			<div>
@@ -125,9 +129,9 @@ class Navbar extends Component {
 						<MDBContainer>
 							<MDBNavbarToggler onClick={this.onClick} className="bg-dark" />
 							<MDBCollapse isOpen={this.state.collapse} navbar>
-								<MDBNavbarNav left>
+								{/* <MDBNavbarNav left>
 									{isAuthenticated ? UnlinkedImage : LinkedImage}
-								</MDBNavbarNav>
+								</MDBNavbarNav> */}
 								<MDBNavbarNav center>
 									{isAuthenticated ? authlinks : guestLinks}
 								</MDBNavbarNav>

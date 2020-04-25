@@ -1,16 +1,18 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 import Button from "../ReusableComponents/Button";
-import footerLogo from "../../assets/images/logo.svg";
+// import footerLogo from "../../assets/images/logo.svg";
 
 export default function Footer() {
 	return (
-		<div className="container-fluid" style={{ backgroundColor: "#413A76" }}>
+		<div
+			className="container-fluid pb-5"
+			style={{ backgroundColor: "#413A76" }}>
 			<div className="container mt-5 pt-5 text-light">
 				<div className="row">
 					<div className="col-md-8 col-sm-12">
 						<div className="row">
-							<div className="col-md-3 col-sm-12 text-center">
+							{/* <div className="col-md-3 col-sm-12 text-center">
 								<img
 									src={footerLogo}
 									className="img-responsive"
@@ -25,8 +27,8 @@ export default function Footer() {
 										</span>
 									</small>
 								</h6>
-							</div>
-							<div className="col-md-2 col-sm-12">
+							</div> */}
+							<div className="col-md-3 col-sm-12">
 								<ul className="list-unstyled">
 									<h6 className="text-light">ABOUT</h6>
 									<li>
@@ -46,7 +48,7 @@ export default function Footer() {
 									</li>
 								</ul>
 							</div>
-							<div className="col-md-2 col-sm-12">
+							<div className="col-md-3 col-sm-12">
 								<ul className="list-unstyled">
 									<h6 className="text-light">SOLUTIONS</h6>
 									<li>
@@ -75,7 +77,7 @@ export default function Footer() {
 									</li>
 								</ul>
 							</div>
-							<div className="col-md-2 col-sm-12">
+							<div className="col-md-3 col-sm-12">
 								<ul className="list-unstyled">
 									<h6 className="text-light">INSIGHTS</h6>
 									<li>
@@ -108,18 +110,18 @@ export default function Footer() {
 							</div>
 						</div>
 					</div>
-					<div className="col-md-4 col-sm-12 ">
+					<div className="col-md-3 col-sm-12 ">
 						<h6 className="text-light">Subscribe to HealthThink via Email</h6>
-						<div className="row">
-							<div className="col-md-8 text-light">
+						<div className="">
+							<div className="text-light">
 								<input
 									className="form-control"
 									placeholder="Enter your email address"
 									type="text"
 								/>
 							</div>
-							<div className="col-md-4">
-								<Button color="white" textcolor="black" width="100%">
+							<div className="mt-3">
+								<Button color="#eeee" textcolor="black" width="100%">
 									{" "}
 									<small>SUBSCRIBE</small>
 								</Button>
