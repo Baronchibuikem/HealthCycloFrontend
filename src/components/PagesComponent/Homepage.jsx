@@ -27,36 +27,25 @@ const Homepage = () => {
 						<span className="h1">ACTION!</span>
 
 						<div className="row my-4">
-							<div className="col-md-1 col-sm-12">
+							<div className="col-md-2 col-sm-12">
 								<h1 className="text-white">50+</h1>
 								<small>Topics</small>
 							</div>
-							<div className="col-md-1 col-sm-12 text-center">
+							<div className="col-md-2 col-sm-12 ">
 								<h1 className="text-white">200+</h1>
 								<small>INDICATORS</small>
 							</div>
-							<div className="col-md-2 col-sm-12 text-center">
+							<div className="col-md-2 col-sm-12 ">
 								<h1 className="text-white">10+</h1>
 								<small>DATA SOURCES</small>
 							</div>
-							<div className="col-md-1 col-sm-12">
+							<div className="col-md-2 col-sm-12">
 								<h1 className="text-white">300+</h1>
 								<small>RESOURCES</small>
 							</div>
 						</div>
 						<div>
-							<div className="row">
-								<div className="col-md-5 col-sm-12">
-									<input
-										className="form-control"
-										placeholder="What are you looking for"
-										type="text"
-										style={{
-											backgroundColor: "#1918186C 0% 0% no-repeat padding-box",
-											opacity: "0.6"
-										}}
-									/>
-								</div>
+							<div className="row mb-4">
 								<div className="col-md-4 col-sm-12">
 									<router-link to="/login">
 										<Button color="#413A76" textcolor="white" width="60%">
@@ -271,7 +260,7 @@ const Homepage = () => {
 
 			<div
 				className=" my-5 text-light"
-				style={{ backgroundColor: "#413A76", height: "150px" }}>
+				style={{ backgroundColor: "#413A76", height: "200px" }}>
 				<div className="container">
 					<div className="row py-5">
 						<div className="col-md-6 col-sm-12">

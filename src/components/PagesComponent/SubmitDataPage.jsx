@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import bgImage from "../../assets/images/submitDataBg.png";
+import route from "../../ApiClient";
 
 export default class SubmitDataPage extends Component {
 	state = {
@@ -30,9 +31,98 @@ export default class SubmitDataPage extends Component {
 		permission: false
 	};
 
+	// ValueChange = e => {
+	// 	e.preventDefault();
+	// 	const { value } = e.target;
+	// 	this.setState(prevState => ({
+	// 		...prevState,
+	// 		selected: [...prevState.selected, value]
+	// 	}));
+	// };
+
+	// this function is used to add or remove items to/from the selected arrays
+	ValueChange = e => {
+		if (e.target.checked) {
+			this.setState({
+				selected: [...this.state.selected, e.target.value]
+			});
+		} else {
+			let remove = this.state.selected.indexOf(e.target.value);
+			this.setState({
+				selected: this.state.selected.filter((_, i) => i !== remove)
+			});
+		}
+	};
+
 	submit = e => {
 		e.preventDefault();
-		console.log("Button was clicked");
+		const {
+			prefix,
+			first_name,
+			last_name,
+			research_topic,
+			research_location,
+			geographical_coverage,
+			start_date,
+			end_date,
+			study_design,
+			study_population,
+			sample_size,
+			sampling_technique,
+			sampling_unit,
+			data_collection_tools,
+			key_variables,
+			selected,
+			name,
+			affilation,
+			phone_number,
+			email,
+			sponsor,
+			data_codebook,
+			questionaire,
+			upload_data,
+			permission
+		} = this.state;
+		const newRequest = {
+			prefix,
+			first_name,
+			last_name,
+			research_topic,
+			research_location,
+			geographical_coverage,
+			start_date,
+			end_date,
+			study_design,
+			study_population,
+			sample_size,
+			sampling_technique,
+			sampling_unit,
+			data_collection_tools,
+			key_variables,
+			selected,
+			name,
+			affilation,
+			phone_number,
+			email,
+			sponsor,
+			data_codebook,
+			questionaire,
+			upload_data,
+			permission
+		};
+		const config = {
+			headers: {
+				"Content-Type": "application/json"
+			}
+		};
+		route
+			.post("/api/v1/data/submit-data/", newRequest, config)
+			.then(response => {
+				console.log(response);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	};
 	render() {
 		const style = {
@@ -70,18 +160,19 @@ export default class SubmitDataPage extends Component {
 								</p>
 								<label class="font-weight-bold">Name</label>
 								<br />
-								<div class="row">
-									<div class="col-md-2 col-sm-12">
-										<input
-											type="text"
-											class="form-control"
-											value={this.state.prefix}
+								<div class="row mb-3">
+									<div class="col-md-4 col-sm-12">
+										<select
+											className="form-control"
 											onChange={e => {
 												this.setState({
 													prefix: e.target.value
 												});
-											}}
-										/>
+											}}>
+											<option value={this.state.prefix}>Mr</option>
+											<option value={this.state.prefix}>Mrs</option>
+										</select>
+
 										<span>Prefix</span>
 									</div>
 									<div class="col-md-4 col-sm-12">
@@ -111,7 +202,7 @@ export default class SubmitDataPage extends Component {
 										<span>Last Name</span>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Research Topic<span class="text-danger ">*</span>
@@ -144,7 +235,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Geographical Coverage<span class="text-danger ">*</span>
@@ -187,7 +278,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Study Design<span class="text-danger ">*</span>
@@ -233,7 +324,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Sampling Technique<span class="text-danger ">*</span>
@@ -266,7 +357,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>Data Collection Tools</span>
 										<textarea
@@ -297,137 +388,90 @@ export default class SubmitDataPage extends Component {
 								</div>
 								<div class="mt-5">
 									<p style={{ backgroundColor: "#eee" }}>
-										{this.state.selected}
+										-- {this.state.selected} --
 									</p>
 									<input
 										type="checkbox"
 										value="NON COMMUNICABLE DISEASES (CARDIOVASCULAR DISEASES AND
                                             CANCER)"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
-									<span>
-										NON COMMUNICABLE DISEASES (CARDIOVASCULAR DISEASES AND
-										CANCER)
-									</span>
+									<span>NON COMMUNICABLE DISEASES</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Malaria"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Malaria</span>
 									<br />
 									<input
 										type="checkbox"
 										value="HIV/AIDS"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>HIV/AIDS</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Tuberculosis"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Tuberculosis</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Other Infectious Disease"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Other Infectious Disease</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Maternal Health"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Maternal Health</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Child Health"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Child Health</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Adolescent Health"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Adolescent Health</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Reproductive and Family Health"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Reproductive and Family Health</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Community Health"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Community Health</span>
 									<br />
 									<input
 										type="checkbox"
 										value="Others"
-										onChange={e => {
-											this.setState({
-												selected: e.target.value
-											});
-										}}
+										onChange={this.ValueChange}
 									/>
 									<span>Others</span>
 								</div>
 								<h5>
 									Private Investigator<span class="text-danger ">*</span>
 								</h5>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Name<span class="text-danger ">*</span>
@@ -457,7 +501,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Contact Number<span class="text-danger ">*</span>
@@ -489,7 +533,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row mb-3">
 									<div class="col-md-6 col-sm-12">
 										<span>
 											Funder(s)/Sponsor(s)<span class="text-danger ">*</span>
@@ -505,7 +549,7 @@ export default class SubmitDataPage extends Component {
 											}}
 										/>
 									</div>
-									<div class="col-md-6 col-sm-12">
+									<div class="col-md-6 col-sm-12 mt-4">
 										<span>Upload Data Codebook</span>
 
 										<input
@@ -520,7 +564,7 @@ export default class SubmitDataPage extends Component {
 										/>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row my-3">
 									<div class="col-md-6 col-sm-12">
 										<span>Upload Questionnaire</span>
 
@@ -570,14 +614,15 @@ export default class SubmitDataPage extends Component {
 									/>
 									<span class="mx-2">I Agree</span>
 								</div>
-								<button
-									large
-									color="#413A76"
-									class="text-light my-4"
-									type="submit"
-									onClick={this.submit}>
-									SUBMIT
-								</button>
+								<div>
+									<button
+										style={{ backgroundColor: "#413A76", width: "20%" }}
+										className=" form-control text-light my-4"
+										type="submit"
+										onClick={this.submit}>
+										SUBMIT
+									</button>
+								</div>
 							</div>
 						</div>
 					</form>
